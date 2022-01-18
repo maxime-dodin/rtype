@@ -1,0 +1,31 @@
+
+\begin{DoxyItemize}
+\item TCP protocole
+\item UDP new protocol
+\item ECS update
+\end{DoxyItemize}
+
+\doxysubparagraph*{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\+GABI \+:}
+
+
+\begin{DoxyItemize}
+\item tag death + systeme qui play les animations de death
+\item IU basic (nb joeurs + jauge de tir), points, level
+\item Coller les niveau sur gimp + ecran noir avec ecris niveau 2, niveau 3 etc
+\item LEVEL DESIGN collisions
+\item MOB \+: dasn playership.\+cpp ne pas collider avec les bords du niveau / + check le tag \char`\"{}mob\char`\"{} et ne pas cllider avec le decord
+\item enum pour les udp !!!
+\item essayer de passer un tableau static aux unpack \& pack sans new
+\end{DoxyItemize}
+
+\doxysubparagraph*{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\+MAXIME \+:}
+
+spawn les mobs depuis le serv \& send les pos toutes les 0.\+5s
+
+\doxysubparagraph*{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\+EDOUARD \+:}
+
+kill les mobs quands le serveur dis qu\textquotesingle{}ils sont touchées kill les enemy quand ils sont touchés
+
+colide les joueurs avec les murs + animation d\textquotesingle{}explosion kill les joueurs quand ils touchent les murs + animation explosion (sparse\+\_\+array$<$spawn$>$ explosion ?) kill les joueurs quand les mobs le touche
+
+degats player -\/$>$ mob degars mob -\/$>$ player mob IA mob spawn de bonus Bonus effets 

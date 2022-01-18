@@ -1,0 +1,151 @@
+[settings]
+    arch=x86_64
+    build_type=Debug
+    compiler=gcc
+    compiler.libcxx=libstdc++11
+    compiler.version=10
+    os=Linux
+
+[requires]
+    boost/1.Y.Z
+    sfml/2.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    arch_build=x86_64
+    build_type=Debug
+    compiler=gcc
+    compiler.libcxx=libstdc++11
+    compiler.version=10
+    os=Linux
+    os_build=Linux
+
+[full_requires]
+    boost/1.77.0:8468b057bf5b2cf5c1e9194777c025a4812bc62f
+    brotli/1.0.9:75e99b627c196b65c439728670655ec3c366b334
+    bzip2/1.0.8:9f84c49e2143828a044b1675a587477e091c9f9f
+    flac/1.3.3:93e346d7049e757d6898188f1a3aa8a360d72813
+    freetype/2.11.0:e15ddb7f0e4c7161333eb7f4a05beeeaea5df24b
+    libalsa/1.2.4:306572d895c5474147e10589af98380c0fc47cb0
+    libbacktrace/cci.20210118:75e99b627c196b65c439728670655ec3c366b334
+    libpng/1.6.37:9f5f4756d1382e451f085ea752ddbf2d02a13e17
+    libudev/system:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    ogg/1.3.4:75e99b627c196b65c439728670655ec3c366b334
+    openal/1.21.1:4f3207d08654f8a67f625d0ee3a6c826a53a40c3
+    opengl/system:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    sfml/2.5.1:20c9b97363837b5272ec680b13fe7d4d5601abe6
+    stb/cci.20210713:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    vorbis/1.3.7:34efbd5c7d1ab93bae5455413ea47cc3e3702def
+    xorg/system:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    zlib/1.2.11:75e99b627c196b65c439728670655ec3c366b334
+
+[full_options]
+    boost:addr2line_location=/usr/bin/addr2line
+    boost:asio_no_deprecated=False
+    boost:buildid=None
+    boost:bzip2=True
+    boost:debug_level=0
+    boost:diagnostic_definitions=False
+    boost:error_code_header_only=False
+    boost:extra_b2_flags=None
+    boost:fPIC=True
+    boost:filesystem_no_deprecated=False
+    boost:header_only=False
+    boost:i18n_backend=deprecated
+    boost:i18n_backend_iconv=libc
+    boost:i18n_backend_icu=False
+    boost:layout=system
+    boost:lzma=False
+    boost:magic_autolink=False
+    boost:multithreading=True
+    boost:namespace=boost
+    boost:namespace_alias=False
+    boost:numa=True
+    boost:pch=True
+    boost:python_executable=None
+    boost:python_version=None
+    boost:segmented_stacks=False
+    boost:shared=False
+    boost:system_no_deprecated=False
+    boost:visibility=hidden
+    boost:with_stacktrace_backtrace=True
+    boost:without_atomic=False
+    boost:without_chrono=False
+    boost:without_container=False
+    boost:without_context=False
+    boost:without_contract=False
+    boost:without_coroutine=False
+    boost:without_date_time=False
+    boost:without_exception=False
+    boost:without_fiber=False
+    boost:without_filesystem=False
+    boost:without_graph=False
+    boost:without_graph_parallel=True
+    boost:without_iostreams=False
+    boost:without_json=False
+    boost:without_locale=False
+    boost:without_log=False
+    boost:without_math=False
+    boost:without_mpi=True
+    boost:without_nowide=False
+    boost:without_program_options=False
+    boost:without_python=True
+    boost:without_random=False
+    boost:without_regex=False
+    boost:without_serialization=False
+    boost:without_stacktrace=False
+    boost:without_system=False
+    boost:without_test=False
+    boost:without_thread=False
+    boost:without_timer=False
+    boost:without_type_erasure=False
+    boost:without_wave=False
+    boost:zlib=True
+    boost:zstd=False
+    brotli:fPIC=True
+    brotli:shared=False
+    bzip2:build_executable=True
+    bzip2:fPIC=True
+    bzip2:shared=False
+    flac:fPIC=True
+    flac:shared=False
+    freetype:fPIC=True
+    freetype:shared=False
+    freetype:with_brotli=True
+    freetype:with_bzip2=True
+    freetype:with_png=True
+    freetype:with_zlib=True
+    libalsa:disable_python=True
+    libalsa:fPIC=True
+    libalsa:shared=False
+    libbacktrace:fPIC=True
+    libbacktrace:shared=False
+    libpng:api_prefix=
+    libpng:fPIC=True
+    libpng:shared=False
+    libpng:sse=True
+    ogg:fPIC=True
+    ogg:shared=False
+    openal:fPIC=True
+    openal:shared=False
+    sfml:audio=True
+    sfml:fPIC=True
+    sfml:graphics=True
+    sfml:network=True
+    sfml:shared=False
+    sfml:window=True
+    stb:with_deprecated=True
+    vorbis:fPIC=True
+    vorbis:shared=False
+    zlib:fPIC=True
+    zlib:minizip=deprecated
+    zlib:shared=False
+
+[recipe_hash]
+
+
+[env]
+

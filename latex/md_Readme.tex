@@ -1,0 +1,66 @@
+\doxysection*{Rtype documentation}
+
+\doxysubsection*{ECS}
+
+A manager of our components added in our game~\newline
+ List of components \+: ~\newline
+
+\begin{DoxyItemize}
+\item Animations ...
+\item Controllable ...
+\item IU ...
+\item Position ...
+\item Sprite ...
+\item Velocity ...
+\end{DoxyItemize}
+
+The registry is a manager of all our list of components (in sparse\+\_\+array class)~\newline
+ List of methods in Registery.\+hpp~\newline
+ Methods\+:
+\begin{DoxyItemize}
+\item {\ttfamily Registery()} \+: constructor of registery create a default scene named \char`\"{}default\char`\"{}
+\item {\ttfamily Registery(\char`\"{}scene1\char`\"{})} \+: constructor create a scene as the name of your string, here \char`\"{}scene1\char`\"{}
+\item {\ttfamily sparse\+Array$<$A$>$ \&register\+\_\+component()} \+: add a component of Type A in our registery
+\item {\ttfamily sparse\+Array$<$A$>$ \&get\+\_\+components()}\+: get all components of type A, in your system\+\_\+fonctions you can iterate on it (see under)
+\item {\ttfamily sparse\+Array$<$A$>$ const \&get\+\_\+components() const} \+: same as get\+\_\+comonent but a const reference is returned
+\item {\ttfamily entity\+\_\+t spawn\+\_\+entity()}\+: spawn\+\_\+an entity on your register, you can add components to it after (see under). It returns you the id of the entity
+\item {\ttfamily void kill\+\_\+entity(entity\+\_\+t const \&e)}\+: destroy the entity by his id
+\item {\ttfamily reference\+\_\+type add\+\_\+component(entity\+\_\+t const \&to, Component \&\&c)}\+: add a \char`\"{}c\char`\"{} component to \char`\"{}to\char`\"{} the entity at the end of
+\item {\ttfamily reference\+\_\+type emplace\+\_\+component(entity\+\_\+t const \&to, Params \&\&... p)}\+: emplace a \char`\"{}p\char`\"{} component(s) to \char`\"{}to\char`\"{} the entity. You can add however you want components
+\item {\ttfamily template$<$typename Component$>$ void remove\+\_\+component(entity\+\_\+t const \&from)}\+: remove the Component \char`\"{}\+Component\char`\"{} in template parameter of the entity (by entity id)
+\item {\ttfamily template$<$typename Component$>$ bool has\+\_\+component(entity\+\_\+t const \&entity)}\+: check if the component of an entity exist or not (true if it does, ether false)
+\item {\ttfamily template$<$class... Components, typename Function$>$ void add\+\_\+system\+\_\+to\+\_\+current\+\_\+scene(\+Function \&\&f)}\+: add a system (f) to your list of systems at the end of the std\+::vector$<$std\+::function()$>$ systems
+\item {\ttfamily void run\+\_\+scene\+\_\+systems()}\+: run all the systems add to you list of systems (std\+::vector$<$std\+::function()$>$ systems) by sorting of added (first added, first played)
+\item \`{}\`{}\`{} struct Scene \{ Scene() = default; std\+::list$<$std\+::function$<$void()$>$$>$ systems; std\+::list$<$entity\+\_\+t$>$ entities; \}; \`{}\`{}\`{} The scenes as a string and contains a list of systems (for the logic of the scene), and entities to display them
+\item {\ttfamily void add\+\_\+scene(const std\+::string \&scene, Scene \&\&scene\+Obj);}\+: create a scene by string and add your objects to them by the scene Struct (just over here)
+\item {\ttfamily void add\+\_\+entity\+\_\+to\+\_\+scene(const entity\+\_\+t \&entity, const std\+::string \&scene)}\+: add an entity to display on your scene by id (the entity must be created before)
+\item {\ttfamily void add\+\_\+entity\+\_\+to\+\_\+current\+\_\+scene(const entity\+\_\+t \&entity)}\+: the current scene is the one you currently are (named in your constructor or in change\+\_\+scene(\char`\"{}scene\+Name\char`\"{}))
+\item {\ttfamily void change\+\_\+scene(const std\+::string \&scene)}\+: changing scene by name (you must have created the scene before)
+\item {\ttfamily void tag\+\_\+entity(const entity\+\_\+t \&, const std\+::string \&tag)}\+: put a tag on your entity (tags can be used to display entities named by a tag before or after, or to collide entities with a specific tag). You can add multiple tag on an entity.
+\item {\ttfamily void untag\+\_\+entity(const entity\+\_\+t \&, const std\+::string \&tag)}\+: remove the tag of the entity by id and name of the tag
+\item {\ttfamily const std\+::vector$<$entity\+\_\+t$>$ \&get\+\_\+tagged\+\_\+entities(const std\+::string \&tag)}\+: get a list (std\+::vector$<$entity\+\_\+t$>$) of all entities named by a tag 
+\end{DoxyItemize}
+
+...Variables ?
+
+\doxysubsection*{Netword and protocol}
+
+\#\+UDP protocole
+
+size\+\_\+t type\+Header~\newline
+ size\+\_\+t len\+Body~\newline
+ size\+\_\+t $\ast$body (-\/$>$ last data is always the entity idx in ecs registery)~\newline
+ ~\newline
+
+\begin{DoxyItemize}
+\item type\+Header 0 -\/$>$ Move\+Positions~\newline
+
+\item type\+Header 1 -\/$>$ Spawn/\+Kill entity~\newline
+
+\item type\+Header 2 -\/$>$ Game\+Event~\newline
+ ~\newline
+ Message from type Move\+Position -\/ Body \+:~\newline
+ \{\char`\"{}\textbackslash{}t\char`\"{}\}\mbox{[}0\mbox{]} = posX, \mbox{[}1\mbox{]} = posY, \mbox{[}2\mbox{]} = entity idx ~\newline
+ Message from type Game\+Event -\/ Body \+:~\newline
+ \{\char`\"{}\textbackslash{}t\char`\"{}\}\mbox{[}0\mbox{]} = type\+Of\+Input \+: 1 -\/$>$ move player \{\char`\"{}\textbackslash{}t\textbackslash{}t\char`\"{}\}\mbox{[}1\mbox{]} = 0 -\/$>$ no moves in X / \mbox{[}1\mbox{]} = 1 -\/$>$ right move / \mbox{[}1\mbox{]} -\/$>$ left move \{\char`\"{}\textbackslash{}t\textbackslash{}t\char`\"{}\}\mbox{[}2\mbox{]} = 0 -\/$>$ no moves in X / \mbox{[}1\mbox{]} = 1 -\/$>$ down move / \mbox{[}1\mbox{]} -\/$>$ up move \{\char`\"{}\textbackslash{}t\textbackslash{}t\char`\"{}\}\mbox{[}3\mbox{]} enity idx \{\char`\"{}\textbackslash{}t\char`\"{}\}\mbox{[}0\mbox{]} = type\+Of\+Input \+: 2 -\/$>$ idk yet ... 
+\end{DoxyItemize}
